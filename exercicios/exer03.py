@@ -1,39 +1,33 @@
-lista_chamada = ['Gustavo', 'Ricardo', 'Felipe', 'Emanuel',
-                 'Laryssa', 'Gaby', 'Ruan', 'Ramom', 'João Miguel',
-                 'Rafael']
+chamada = ['Gustavo', 'Ricardo', 'Rafael', 'Emanuel', 'Filipe', 
+           'Alice', 'Laryssa', 'Jão Miguel', 'Bolsonaro', 'Lula']
 
-def presencas(lista_chamada):
+def chamada_alunos(chamada):
+    alunos_presentes = []
+    alunos_faltantes = []
     i = 0
-    while i < len(lista_chamada):
-        presenca = []
-        presenca_aluno = input(lista_chamada[i] + " Esta presente? [S/N]")
-        if presenca_aluno == 'S' or presenca_aluno == 's':
-            presenca.append(True)
-        elif presenca_aluno == 'N' or presenca_aluno == 'n':
-            presenca.append(False)
-        i = i + 1 
-    return presenca
-
-def mostra_listas(presenca):
-    lista_faltas = []
-    lista_presente = []
-    i = 0
-    print("VER LISTA:")
-    print("[1] Lista de Alunos presentes")
-    print("[2] Listas de Alunos que faltaram")
-    opcao = int(input("Informe a opção: "))
-    if opcao == 1:
-        while i < len(presenca):
-            if presenca == True:
-                lista_presente.append(lista_chamada[i])
-            i = i + 1
-        return lista_presente
-    elif opcao == 2:
-        while i < len(presenca):
-            if presenca == False:
-                lista_faltas.append(lista_chamada[i])
-            i = i + 1
-        return lista_faltas
-
-presencas = presencas(lista_chamada)
-print(mostra_listas(presencas))
+    while i < len(chamada):
+        esta_presente = input(chamada[i] + ' Esta presente? [S/N]')
+        if esta_presente == 'S' or esta_presente == 's':
+            alunos_presentes.append(chamada[i])
+        elif esta_presente == 'N' or esta_presente == 'n':
+            alunos_faltantes.append(chamada[i])
+        i = i + 1
+    encerrar = False
+    while encerrar == False:
+        print('Mostra lista: ')
+        print('[1]Presentes')
+        print('[2]Faltantes')
+        opcao = int(input('Informe a opção: '))
+        if opcao == 1:
+            print(alunos_presentes)
+        elif opcao == 2:
+            print(alunos_faltantes)
+        else:
+            print('Opção não Disponivel!')
+        opcao_2 = input('Deseja encerrar o programa: ')
+        if opcao_2 == 'S' or opcao_2 == 's':
+            encerrar = True
+        else:
+            encerrar = False
+    return None
+chamada_alunos(chamada)
